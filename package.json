@@ -1,6 +1,7 @@
 {
-  "version": "0.0.7",
+  "version": "0.1.6",
   "license": "MIT",
+  "repository": "RayenTellissy/MotionPack",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -35,6 +36,12 @@
   },
   "name": "motion-pack",
   "author": "Ryan",
+  "keywords": [
+    "react",
+    "animation",
+    "motion",
+    "ui"
+  ],
   "module": "dist/motion-pack.esm.js",
   "size-limit": [
     {

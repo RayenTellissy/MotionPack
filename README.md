@@ -8,6 +8,9 @@ Simple React wrappers to add animations to your components!
 npm install motion-pack
 ```
 
+---
+<p>Note: Every wrapper component in MotionPack has a default animation, if you would like to customize the animation. You can change the props shown below for each component</p>
+
 ## Reveal
 
 ```js

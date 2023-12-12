@@ -25,7 +25,7 @@ type RevealProps = {
   /**
    * Determines whether the animation fades in or out.
    */
-  fade?: "in" | "out"
+  fade?: "in" | "out" | "none"
 
   /**
    * The delay before the animation starts
@@ -49,12 +49,25 @@ type RevealProps = {
  * @param {RevealProps}
  * @returns A Reveal wrapper component.
  */
-export const Reveal = ({ children, startingHeight = 10, duration = 0.3, ease, fade = "in", delay }: RevealProps) => {
+export const Reveal = ({ children, startingHeight = 30, duration = 0.5, ease, fade = "in", delay }: RevealProps) => {
+  const fadeSetting = {
+    hidden: {
+      in: 0,
+      out: 1,
+      none: 1
+    },
+    visible: {
+      in: 1,
+      out: 0,
+      none: 1
+    }
+  }
+  
   return (
     <motion.div
       variants={{
-        hidden: { y: startingHeight, opacity: fade === "in" ? 0 : 1 },
-        visible: { y: 0, opacity: fade === "in" ? 1 : 0 }
+        hidden: { y: startingHeight, opacity: fadeSetting.hidden[fade] },
+        visible: { y: 0, opacity: fadeSetting.visible[fade] }
       }}
       initial="hidden"
       animate="visible"
