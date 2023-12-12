@@ -1,57 +1,64 @@
 {
-  "name": "motion-pack",
-  "version": "0.0.1",
-  "description": "Effortlessly integrate smooth animations into your React components. Lightweight, intuitive, and ready to enhance your UI.",
-  "main": "index.ts",
-  "type": "module",
-  "scripts": {
-    "build": "rollup -c",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RayenTellissy/MotionPack.git"
-  },
-  "keywords": [
-    "react",
-    "animation",
-    "motion",
-    "ui"
-  ],
-  "author": "Ryan",
+  "version": "0.0.7",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RayenTellissy/MotionPack/issues"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
-  "homepage": "https://github.com/RayenTellissy/MotionPack#readme",
-  "devDependencies": {
-    "@babel/preset-react": "^7.23.3",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@storybook/addon-essentials": "^7.6.4",
-    "@storybook/addon-interactions": "^7.6.4",
-    "@storybook/addon-links": "^7.6.4",
-    "@storybook/addon-onboarding": "^1.0.9",
-    "@storybook/blocks": "^7.6.4",
-    "@storybook/react": "^7.6.4",
-    "@storybook/react-vite": "^7.6.4",
-    "@storybook/test": "^7.6.4",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^4.7.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "storybook": "^7.6.4",
-    "typescript": "^5.3.3"
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "motion-pack",
+  "author": "Ryan",
+  "module": "dist/motion-pack.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/motion-pack.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/motion-pack.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.0.1",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "husky": "^8.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "size-limit": "^11.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@rollup/plugin-typescript": "^11.1.5",
     "framer-motion": "^10.16.16"
   }
 }
