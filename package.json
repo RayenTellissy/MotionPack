@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.2.4",
   "license": "MIT",
   "repository": "RayenTellissy/MotionPack",
   "main": "dist/index.js",
@@ -54,6 +54,7 @@
     }
   ],
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
     "@size-limit/preset-small-lib": "^11.0.1",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
