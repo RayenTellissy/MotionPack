@@ -6,6 +6,11 @@ type RevealProps = {
    * The content to reveal.
    */
   children: React.ReactNode
+
+  /**
+   * Ref object for accessing the underlying HTML element.
+   */
+  ref: React.Ref<HTMLDivElement>
   
   /**
    * The starting height of the animation.
@@ -49,7 +54,7 @@ type RevealProps = {
  * @param {RevealProps}
  * @returns A Reveal wrapper component.
  */
-export const Reveal = ({ children, startingHeight = 30, duration = 0.5, ease, fade = "in", delay }: RevealProps) => {
+export const Reveal = ({ children, ref, startingHeight = 30, duration = 0.5, ease, fade = "in", delay }: RevealProps) => {
   const fadeSetting = {
     hidden: {
       in: 0,
@@ -65,6 +70,7 @@ export const Reveal = ({ children, startingHeight = 30, duration = 0.5, ease, fa
   
   return (
     <motion.div
+      ref={ref}
       variants={{
         hidden: { y: startingHeight, opacity: fadeSetting.hidden[fade] },
         visible: { y: 0, opacity: fadeSetting.visible[fade] }
